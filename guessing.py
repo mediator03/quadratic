@@ -15,7 +15,7 @@ import random
 import sys
 num = random.randint(1,20)
 guess = int(input("Guess a number between 1 and 20 (enter 0 to quit): "))
-#print (num)
+print (num)
 if guess == 0:
     print ("Ending program")
     sys.exit()
@@ -27,11 +27,23 @@ while guess > num:
     if guess == 0:
         print ("Ending program")
         sys.exit()
+    while guess < num:
+        print("Too low")
+        guess = int(input("Guess again: "))
+        if guess == 0:
+            print ("Ending program")
+            sys.exit()
 while guess < num:
     print("Too low")
     guess = int(input("Guess again: "))
     if guess == 0:
         print ("Ending program")
         sys.exit()
+    while guess > num:
+        print("Too high")
+        guess = int(input("Guess again: "))
+        if guess == 0:
+            print ("Ending program")
+            sys.exit()
 if guess == num:
     print ("You got it")
